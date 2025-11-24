@@ -17,9 +17,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Usuario.DbContext\Usuario.DbContext.csproj" />
-		<ProjectReference Include="..\Usuario.Server\Usuario.Server.csproj" />
-		<ProjectReference Include="..\Usuario.Intf\Usuario.Intf.csproj" />
+		<ProjectReference Include="..\Usuario.DbContext\UsuarioDbContext.csproj" />
+		<ProjectReference Include="..\Usuario.Server\UsuarioServer.csproj" />
+		<ProjectReference Include="..\Usuario.Intf\UsuarioIntf.csproj" />
 	</ItemGroup>
 
 </Project>
