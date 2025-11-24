@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense} from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Eye, EyeOff, Check } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { USER_API_BASE } from '@/lib/fetcher';
 
-export default function ResetPasswordPage() {
+ function ConteudoAlterarSenha() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -178,5 +178,13 @@ function PasswordRule({ label, met }: { label: string; met: boolean }) {
       <Check className={`h-4 w-4 mr-1 transition-colors ${met ? 'text-emerald-500' : 'text-gray-400'}`} />
       <span className={met ? 'text-emerald-600' : 'text-gray-500'}>{label}</span>
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<div className="flex justify-center p-10">Carregando...</div>}>
+      <ConteudoAlterarSenha />
+    </Suspense>
   );
 }
