@@ -3,11 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # 1. Copia os arquivos de projeto (csproj)
-# Sintaxe simplificada: COPY origem destino
-COPY ../Usuario.API/Usuario.API.csproj Usuario.API/
-COPY ../Usuario.DbContext/Usuario.DbContext.csproj Usuario.DbContext/
-COPY ../Usuario.Intf/Usuario.Intf.csproj Usuario.Intf/
-COPY ../Usuario.Server/Usuario.Server.csproj Usuario.Server/
+# Nota: Como este Dockerfile deve estar na raiz da solução, removemos o "../"
+# e acessamos as pastas diretamente.
+COPY ["Usuario.API/Usuario.API.csproj", "Usuario.API/"]
+COPY ["Usuario.DbContext/Usuario.DbContext.csproj", "Usuario.DbContext/"]
+COPY ["Usuario.Intf/Usuario.Intf.csproj", "Usuario.Intf/"]
+COPY ["Usuario.Server/Usuario.Server.csproj", "Usuario.Server/"]
 
 # 2. Restaura as dependências
 RUN dotnet restore "Usuario.API/Usuario.API.csproj"
