@@ -13,7 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Usuario.DBContext\UsuarioDBContext.csproj" />
+		<ProjectReference Include="..\Usuario.DbContext\UsuarioDbContext.csproj" />
 		<ProjectReference Include="..\Usuario.Intf\UsuarioIntf.csproj" />
 	</ItemGroup>
 
