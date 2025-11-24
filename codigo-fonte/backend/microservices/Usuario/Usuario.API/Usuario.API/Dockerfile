@@ -28,28 +28,3 @@ EXPOSE 8080
 ENV ASPNETCORE_URLS=http://0.0.0.0:8080
 
 ENTRYPOINT ["dotnet", "Usuario.API.dll"]
-```
-
----
-
-### 2. A Configuração no Dashboard do Render (O Pulo do Gato)
-
-O erro mais comum não é no código, é aqui. Quando você criar o **Web Service** no Render, preencha assim:
-
-1.  **Root Directory (Diretório Raiz):** Deixe em branco (ou `.`) se o Dockerfile estiver na raiz do repositório.
-    * *Se o Dockerfile estiver dentro de uma pasta (ex: `src/Usuario`), você deve colocar `src/Usuario` aqui.*
-2.  **Environment Variables (Variáveis de Ambiente):**
-    * Adicione uma variável chamada `PORT` com valor `8080`.
-    * O Render usa essa variável para saber quando seu site está "pronto". Como forçamos o .NET a usar a 8080 no Dockerfile, elas precisam bater.
-
-### Resumo do Check-list de Caminhos
-Olhe para o seu `RUN dotnet restore ...`. No seu código está:
-`"Usuario.API/Usuario.API/Usuario.API.csproj"`
-
-Isso significa que sua estrutura de pastas no Git deve ser exatemente assim:
-```text
-(Raiz do Git)
- ├── Dockerfile
- └── Usuario.API/
-      └── Usuario.API/
-           └── Usuario.API.csproj
