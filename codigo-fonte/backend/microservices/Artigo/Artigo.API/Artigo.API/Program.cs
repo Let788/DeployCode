@@ -25,7 +25,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var _myAllowSpecificOrigins = "https://revista-v2v5.onrender.com";
+//var _myAllowSpecificOrigins = "https://revista-v2v5.onrender.com";
 
 // =========================================================================
 // 1. CONFIGURAÇÃO DO MONGODB
@@ -90,7 +90,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "Magazine",
                       policy =>
                       {
-                          policy.WithOrigins(_myAllowSpecificOrigins)
+                          policy.WithOrigins()
                                 .AllowAnyHeader()
                                 .AllowAnyMethod();
                       });
